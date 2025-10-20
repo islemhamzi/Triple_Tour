@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 0; }
+    header { background: #343a40; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    header a { color: white; text-decoration: none; background: #dc3545; padding: 8px 12px; border-radius: 5px; }
+    main { max-width: 1000px; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; }
+    h2, h3 { margin-top: 0; }
+    .tour { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+    form input, form textarea, form button { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    form button { background: #28a745; color: white; border: none; cursor: pointer; }
+    form button:hover { background: #218838; }
+    button#fetchTours { background: #007bff; color: white; margin-bottom: 20px; }
+    button#fetchTours:hover { background: #0069d9; }
+    .deleteBtn { background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+    .deleteBtn:hover { background: #b02a37; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Admin Dashboard</h2>
+  <a href="/admin/logout">Logout</a>
+</header>
+
+<main>
+  <h3>Add New Tour</h3>
+  <form id="addTourForm" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Tour Title" required>
+    <input type="text" name="location" placeholder="Location" required>
+    <input type="number" name="price" placeholder="Price" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <input type="file" name="image" accept="image/*">
+    <button type="submit">Add Tour</button>
+  </form>
+
+  <h3>All Tours</h3>
+  <button id="fetchTours">Get All Tours</button>
+  <div id="toursContainer"></div>
+</main>
+
+<script>
+  const toursContainer = document.getElementById('toursContainer');
+  const addTourForm = document.getElementById('addTourForm');
+
+  // Fetch and display all tours
+  async function loadTours() {
+    toursContainer.innerHTML = 'Loading...';
+    try {
+      const res = await fetch('/api/tours');
+      const tours = await res.json();
+      if (tours.length === 0) {
+        toursContainer.innerHTML = '<p>No tours found.</p>';
+        return;
+      }
+      toursContainer.innerHTML = tours.map(tour => `
+        <div class="tour" data-id="${tour._id}">
+          <h4>${tour.title} - ${tour.location}</h4>
+          <p>Price: $${tour.price}</p>
+          <p>${tour.description}</p>
+          ${tour.imageUrl ? `<img src="${tour.imageUrl}" alt="${tour.title}" width="200">` : ''}
+          <button class="deleteBtn">Delete</button>
+        </div>
+      `).join('');
+
+      // Attach delete listeners
+      document.querySelectorAll('.deleteBtn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const id = e.target.closest('.tour').dataset.id;
+          try {
+            await fetch(`/api/tours/${id}`, { method: 'DELETE' });
+            loadTours(); // reload after deletion
+          } catch (err) {
+            console.error(err);
+          }
+        });
+      });
+
+    } catch (err) {
+      toursContainer.innerHTML = '<p>Error fetching tours.</p>';
+      console.error(err);
+    }
+  }
+
+  // Fetch tours button
+  document.getElementById('fetchTours').addEventListener('click', loadTours);
+
+  // Add tour dynamically
+  addTourForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(addTourForm);
+
+    try {
+      await fetch('/api/tours', {
+        method: 'POST',
+        body: formData
+      });
+      addTourForm.reset();
+      loadTours(); // reload list after adding
+    } catch (err) {
+      console.error('Error adding tour:', err);
+    }
+  });
+
+  // Load tours on page load
+  loadTours();
+</script>
+
+</body>
+</html>

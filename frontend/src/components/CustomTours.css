@@ -1,0 +1,151 @@
+.custom-tours-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.custom-hero {
+  background-image: url('https://images.unsplash.com/photo-1591359053763-c7e126c68f5c');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 140px 20px;
+  position: relative;
+}
+
+.custom-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+}
+
+.hero-rating {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ffd166;
+}
+
+.hero-btn {
+  margin-top: 20px;
+  background-color: #ff6b35;
+  border: none;
+  padding: 12px 30px;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.hero-btn:hover {
+  background-color: #e85b2c;
+}
+
+/* Intro */
+.custom-intro {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Testimonials */
+.custom-testimonials {
+  background-color: #f8f8f8;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.testimonial {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  max-width: 280px;
+}
+
+/* How It Works */
+.custom-how {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.how-steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.how-step {
+  background-color: #ff6b35;
+  color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+/* Form */
+.custom-form {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+.tour-form {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tour-form input,
+.tour-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.tour-form button {
+  background-color: #ff6b35;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tour-form button:hover {
+  background-color: #e85b2c;
+}

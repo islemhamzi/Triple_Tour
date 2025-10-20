@@ -1,0 +1,65 @@
+.multi-day-tours {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.multi-day-tours h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-family: "Playfair Display", serif;
+  color: #ff6b35;
+}
+
+.tours-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tour-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.tour-card:hover {
+  transform: translateY(-8px);
+}
+
+.tour-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tour-card h3 {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 15px 0 5px;
+}
+
+.tour-card p {
+  font-size: 14px;
+  color: #555;
+  padding: 0 15px 15px;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  background-color: #ff6b35;
+  color: white;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.learn-more-btn:hover {
+  background-color: #e85a2a;
+}

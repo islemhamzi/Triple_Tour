@@ -1,0 +1,69 @@
+.highlights {
+  padding: 80px 20px;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* Tunisia landscape */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white; /* make text readable on image */
+  position: relative;
+}
+
+/* Optional: overlay to make text more readable */
+.highlights::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); /* semi-transparent dark overlay */
+  z-index: 1;
+}
+
+.highlights h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  font-family: 'Playfair Display', serif;
+  color: #ffd166;
+  position: relative;
+  z-index: 2;
+}
+
+.highlights-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.highlight-card {
+  background-color: rgba(255,255,255,0.85); /* slightly transparent card */
+  width: 220px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  color: #333;
+}
+
+.highlight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.highlight-card h3 {
+  margin: 15px 0 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #ff6b35;
+}
+
+.highlight-card p {
+  padding: 0 10px 20px;
+  font-size: 14px;
+  color: #555;
+}
