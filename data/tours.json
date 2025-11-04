@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "68ee9232e7fa0cf3e8945a40"
+  },
+  "title": "islem",
+  "description": "islem",
+  "price": 1213,
+  "location": "islem",
+  "imageUrl": "/images/1760465458515.jpg",
+  "createdAt": {
+    "$date": "2025-10-14T18:10:58.527Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-14T18:10:58.527Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68efbbd2226c177ac0e48bed"
+  },
+  "title": "tit",
+  "description": "TITITI",
+  "price": 123,
+  "location": "tit",
+  "imageUrl": "/images/1760541650805.jpg",
+  "createdAt": {
+    "$date": "2025-10-15T15:20:50.815Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-15T15:20:50.815Z"
+  },
+  "__v": 0
+}]
